@@ -13,7 +13,9 @@ public class Specialist {
     public void takeCall() {
         try {
             while (!queue.isEmpty()) {
-                System.out.println(queue.poll() + " разговаривает с " + Thread.currentThread().getName());
+                String call = queue.poll();
+                if (call != null)
+                    System.out.println(call + " разговаривает с " + Thread.currentThread().getName());
                 //эмулируем ответ на звонок
                 Thread.sleep(PROBLEM_RESOLVING_TIME);
             }
